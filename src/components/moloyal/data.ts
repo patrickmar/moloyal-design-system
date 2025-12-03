@@ -1,40 +1,57 @@
 // MoLoyal Sample Data
-import { User, Goal, Transaction, RankAllocation, AllocationPayout, AuditLogEntry, RosterData, Notification, ArmyAnnouncement, NotificationSettings } from './types';
+import {
+  User,
+  Goal,
+  Transaction,
+  RankAllocation,
+  AllocationPayout,
+  AuditLogEntry,
+  RosterData,
+  Notification,
+  ArmyAnnouncement,
+  NotificationSettings,
+} from "./types";
 
-// Utility function to format currency
+// Utility function to format currencies
 export const formatCurrency = (amount: number): string => {
-  if (amount == null || isNaN(amount)) return '₦0';
-  return amount.toLocaleString('en-NG', {
-    style: 'currency',
-    currency: 'NGN',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  }).replace('NGN', '₦').replace(/\s/g, '');
+  if (amount == null || isNaN(amount)) return "₦0";
+  return amount
+    .toLocaleString("en-NG", {
+      style: "currency",
+      currency: "NGN",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })
+    .replace("NGN", "₦")
+    .replace(/\s/g, "");
 };
 
 export const sampleUsers: User[] = [
   {
     name: "Amina Okoye",
-    rank: "Sergeant", 
+    rank: "Sergeant",
     service_no: "NA-12345",
     bvn: "12345678901",
     allocation: 10000,
-    avatar: "https://images.unsplash.com/photo-1581065178026-390bc4e78dad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc1OTI0NjExMHww&ixlib=rb-4.1.0&q=80&w=100"
+    avatar:
+      "https://images.unsplash.com/photo-1581065178026-390bc4e78dad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc1OTI0NjExMHww&ixlib=rb-4.1.0&q=80&w=100",
   },
   {
     name: "Chinedu E.",
     rank: "Corporal",
-    service_no: "NA-22345", 
+    service_no: "NA-22345",
     allocation: 5000,
-    avatar: "https://images.unsplash.com/photo-1672685667592-0392f458f46f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NTkzMTQ4OTR8MA&ixlib=rb-4.1.0&q=80&w=100"
+    avatar:
+      "https://images.unsplash.com/photo-1672685667592-0392f458f46f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBtYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NTkzMTQ4OTR8MA&ixlib=rb-4.1.0&q=80&w=100",
   },
   {
     name: "Adebayo Folake",
     rank: "Lieutenant",
     service_no: "NA-33456",
     allocation: 15000,
-    avatar: "https://images.unsplash.com/photo-1758599543154-76ec1c4257df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDF8fHx8MTc1OTI1NzkwNHww&ixlib=rb-4.1.0&q=80&w=100"
-  }
+    avatar:
+      "https://images.unsplash.com/photo-1758599543154-76ec1c4257df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDF8fHx8MTc1OTI1NzkwNHww&ixlib=rb-4.1.0&q=80&w=100",
+  },
 ];
 
 export const sampleGoals: Goal[] = [
@@ -53,7 +70,7 @@ export const sampleGoals: Goal[] = [
       type: "monthly",
       amount: 8333,
       alignWithPayCycle: true,
-      nextContribution: "2025-11-01"
+      nextContribution: "2025-11-01",
     },
     autoDeduct: true,
     contributions: [
@@ -64,43 +81,43 @@ export const sampleGoals: Goal[] = [
         date: "2025-10-01",
         type: "payroll",
         status: "completed",
-        description: "Monthly payroll deduction"
+        description: "Monthly payroll deduction",
       },
       {
-        id: "c2", 
+        id: "c2",
         goalId: "1",
         amount: 5000,
         date: "2025-09-15",
         type: "manual",
         status: "completed",
-        description: "Manual top-up"
+        description: "Manual top-up",
       },
       {
         id: "c3",
-        goalId: "1", 
+        goalId: "1",
         amount: 10000,
         date: "2025-09-01",
         type: "payroll",
         status: "completed",
-        description: "Monthly payroll deduction"
+        description: "Monthly payroll deduction",
       },
       {
         id: "c4",
         goalId: "1",
         amount: 15000,
-        date: "2025-08-01", 
+        date: "2025-08-01",
         type: "manual",
         status: "completed",
-        description: "Bonus allocation"
+        description: "Bonus allocation",
       },
       {
         id: "c5",
         goalId: "1",
         amount: 10000,
         date: "2025-07-01",
-        type: "payroll", 
+        type: "payroll",
         status: "completed",
-        description: "Monthly payroll deduction"
+        description: "Monthly payroll deduction",
       },
       {
         id: "c6",
@@ -108,27 +125,27 @@ export const sampleGoals: Goal[] = [
         amount: 10000,
         date: "2025-06-01",
         type: "payroll",
-        status: "completed", 
-        description: "Initial contribution"
-      }
-    ]
+        status: "completed",
+        description: "Initial contribution",
+      },
+    ],
   },
   {
-    id: "2", 
+    id: "2",
     title: "House Deposit",
     description: "Down payment for new family home",
     target: 2000000,
     current: 250000,
     deadline: "2027-06-30",
     priority: "high",
-    currency: "NGN", 
+    currency: "NGN",
     status: "active",
     createdAt: "2024-01-15",
     contributionSchedule: {
       type: "monthly",
       amount: 50000,
       alignWithPayCycle: true,
-      nextContribution: "2025-11-01"
+      nextContribution: "2025-11-01",
     },
     autoDeduct: true,
     contributions: [
@@ -138,23 +155,23 @@ export const sampleGoals: Goal[] = [
         amount: 50000,
         date: "2025-10-01",
         type: "payroll",
-        status: "completed"
+        status: "completed",
       },
       {
         id: "c8",
-        goalId: "2", 
+        goalId: "2",
         amount: 50000,
         date: "2025-09-01",
         type: "payroll",
-        status: "completed"
+        status: "completed",
       },
       {
         id: "c9",
         goalId: "2",
-        amount: 50000, 
+        amount: 50000,
         date: "2025-08-01",
         type: "payroll",
-        status: "completed"
+        status: "completed",
       },
       {
         id: "c10",
@@ -162,25 +179,25 @@ export const sampleGoals: Goal[] = [
         amount: 50000,
         date: "2025-07-01",
         type: "payroll",
-        status: "completed"
+        status: "completed",
       },
       {
-        id: "c11", 
+        id: "c11",
         goalId: "2",
         amount: 25000,
         date: "2025-06-15",
         type: "manual",
-        status: "completed"
+        status: "completed",
       },
       {
         id: "c12",
         goalId: "2",
         amount: 25000,
-        date: "2025-06-01", 
+        date: "2025-06-01",
         type: "manual",
-        status: "completed"
-      }
-    ]
+        status: "completed",
+      },
+    ],
   },
   {
     id: "3",
@@ -188,7 +205,7 @@ export const sampleGoals: Goal[] = [
     description: "Children's university education savings",
     target: 500000,
     current: 40000,
-    deadline: "2026-12-01", 
+    deadline: "2026-12-01",
     priority: "medium",
     currency: "NGN",
     status: "active",
@@ -197,28 +214,28 @@ export const sampleGoals: Goal[] = [
       type: "monthly",
       amount: 15000,
       alignWithPayCycle: false,
-      nextContribution: "2025-11-15"
+      nextContribution: "2025-11-15",
     },
     autoDeduct: false,
     contributions: [
       {
         id: "c13",
-        goalId: "3", 
+        goalId: "3",
         amount: 20000,
         date: "2025-10-15",
         type: "manual",
-        status: "completed"
+        status: "completed",
       },
       {
         id: "c14",
         goalId: "3",
         amount: 20000,
         date: "2025-09-15",
-        type: "manual", 
-        status: "completed"
-      }
-    ]
-  }
+        type: "manual",
+        status: "completed",
+      },
+    ],
+  },
 ];
 
 export const sampleTransactions: Transaction[] = [
@@ -236,10 +253,10 @@ export const sampleTransactions: Transaction[] = [
     referenceId: "PAY-2025-10-085001",
     note: "Monthly salary allocation for October 2025",
     balanceAfter: 128500,
-    supportingDocuments: ["payslip-oct-2025.pdf"]
+    supportingDocuments: ["payslip-oct-2025.pdf"],
   },
   {
-    id: "TXN002", 
+    id: "TXN002",
     type: "debit",
     amount: 25000,
     description: "Goal Contribution - House Deposit",
@@ -252,7 +269,7 @@ export const sampleTransactions: Transaction[] = [
     referenceId: "GC-2025-10-025001",
     goalId: "2",
     note: "Automatic monthly contribution to House Deposit goal",
-    balanceAfter: 103500
+    balanceAfter: 103500,
   },
   {
     id: "TXN003",
@@ -269,9 +286,7 @@ export const sampleTransactions: Transaction[] = [
     merchantName: "MoLoyal Agent - Abuja Central",
     note: "Cash deposit via authorized MoLoyal agent",
     balanceAfter: 108500,
-    fees: [
-      { amount: 50, description: "Agent processing fee" }
-    ]
+    fees: [{ amount: 50, description: "Agent processing fee" }],
   },
   {
     id: "TXN004",
@@ -286,9 +301,10 @@ export const sampleTransactions: Transaction[] = [
     processedAt: "2025-10-21T11:45:00Z",
     referenceId: "WTH-2025-10-050001",
     note: "Emergency withdrawal request for medical expenses",
-    denialReason: "Insufficient documentation provided. Medical certificate required for emergency withdrawals above ₦30,000. Please resubmit with proper documentation.",
+    denialReason:
+      "Insufficient documentation provided. Medical certificate required for emergency withdrawals above ₦30,000. Please resubmit with proper documentation.",
     appealable: true,
-    balanceAfter: 103500
+    balanceAfter: 103500,
   },
   {
     id: "TXN005",
@@ -303,7 +319,7 @@ export const sampleTransactions: Transaction[] = [
     processedAt: "2025-10-15T16:30:00Z",
     referenceId: "BON-2025-10-003501",
     note: "Performance bonus for Q3 2025 exceptional service",
-    balanceAfter: 107000
+    balanceAfter: 107000,
   },
   {
     id: "TXN006",
@@ -318,7 +334,7 @@ export const sampleTransactions: Transaction[] = [
     processedAt: "2025-10-01T00:01:00Z",
     referenceId: "FEE-2025-10-000201",
     note: "Monthly account maintenance fee",
-    balanceAfter: 103300
+    balanceAfter: 103300,
   },
   {
     id: "TXN007",
@@ -334,7 +350,7 @@ export const sampleTransactions: Transaction[] = [
     referenceId: "GC-2025-09-015001",
     goalId: "1",
     note: "Manual contribution to Emergency Fund",
-    balanceAfter: 103500
+    balanceAfter: 103500,
   },
   {
     id: "TXN008",
@@ -349,7 +365,7 @@ export const sampleTransactions: Transaction[] = [
     processedAt: "2025-09-25T10:15:00Z",
     referenceId: "REF-2025-09-002001",
     note: "Refund for cancelled withdrawal transaction TXN-WTH-2025-09-020001",
-    balanceAfter: 118500
+    balanceAfter: 118500,
   },
   {
     id: "TXN009",
@@ -365,9 +381,7 @@ export const sampleTransactions: Transaction[] = [
     referenceId: "WTH-2025-09-030001",
     note: "ATM withdrawal request - pending approval",
     balanceAfter: 116500,
-    fees: [
-      { amount: 100, description: "ATM processing fee" }
-    ]
+    fees: [{ amount: 100, description: "ATM processing fee" }],
   },
   {
     id: "TXN010",
@@ -383,8 +397,8 @@ export const sampleTransactions: Transaction[] = [
     referenceId: "DEP-2025-09-012001",
     merchantName: "MoLoyal Agent - Lagos Victoria Island",
     note: "Bank transfer deposit via First Bank agent",
-    balanceAfter: 146500
-  }
+    balanceAfter: 146500,
+  },
 ];
 
 // Sample withdrawal and early release data
@@ -394,22 +408,22 @@ export const sampleBankAccounts = [
     bankName: "First Bank of Nigeria",
     accountNumber: "3024567890",
     accountName: "Amina Okoye",
-    isDefault: true
+    isDefault: true,
   },
   {
-    id: "BA002", 
+    id: "BA002",
     bankName: "Access Bank",
     accountNumber: "0987654321",
     accountName: "Amina Okoye",
-    isDefault: false
+    isDefault: false,
   },
   {
     id: "BA003",
     bankName: "Zenith Bank",
     accountNumber: "2196873450",
     accountName: "Chinedu Emmanuel",
-    isDefault: true
-  }
+    isDefault: true,
+  },
 ];
 
 export const sampleAgentLocations = [
@@ -418,22 +432,22 @@ export const sampleAgentLocations = [
     name: "MoLoyal Express - Victoria Island",
     location: "Plot 1234, Tiamiyu Savage Street, Victoria Island, Lagos",
     distance: "2.3 km",
-    fee: 100
+    fee: 100,
   },
   {
     id: "AG002",
     name: "QuickCash Agent - Ikoyi",
     location: "35 Awolowo Road, Ikoyi, Lagos",
-    distance: "4.1 km", 
-    fee: 150
+    distance: "4.1 km",
+    fee: 150,
   },
   {
     id: "AG003",
     name: "FastPay Outlet - Lagos Island",
     location: "Marina Road, Lagos Island",
     distance: "6.8 km",
-    fee: 100
-  }
+    fee: 100,
+  },
 ];
 
 export const sampleWithdrawalRequests = [
@@ -445,7 +459,7 @@ export const sampleWithdrawalRequests = [
     destinationType: "bank" as const,
     destinationDetails: {
       bankName: "First Bank of Nigeria",
-      accountNumber: "3024567890"
+      accountNumber: "3024567890",
     },
     status: "pending" as const,
     submittedAt: "2025-10-02T09:15:00Z",
@@ -455,17 +469,17 @@ export const sampleWithdrawalRequests = [
     priority: "high" as const,
     riskLevel: "medium" as const,
     isEarlyRelease: true,
-    lockReleaseReason: "Medical emergency requiring immediate funds"
+    lockReleaseReason: "Medical emergency requiring immediate funds",
   },
   {
     id: "WR002",
-    userId: "U002", 
+    userId: "U002",
     user: sampleUsers[1],
     amount: 25000,
     destinationType: "agent" as const,
     destinationDetails: {
       agentName: "MoLoyal Express - Victoria Island",
-      location: "Victoria Island, Lagos"
+      location: "Victoria Island, Lagos",
     },
     status: "pending" as const,
     submittedAt: "2025-10-02T08:30:00Z",
@@ -473,7 +487,7 @@ export const sampleWithdrawalRequests = [
     fees: 100,
     netAmount: 24900,
     priority: "normal" as const,
-    riskLevel: "low" as const
+    riskLevel: "low" as const,
   },
   {
     id: "WR003",
@@ -483,7 +497,7 @@ export const sampleWithdrawalRequests = [
     destinationType: "bank" as const,
     destinationDetails: {
       bankName: "Access Bank",
-      accountNumber: "0987654321"
+      accountNumber: "0987654321",
     },
     status: "approved" as const,
     submittedAt: "2025-10-01T14:20:00Z",
@@ -494,7 +508,7 @@ export const sampleWithdrawalRequests = [
     netAmount: 150000,
     priority: "urgent" as const,
     riskLevel: "high" as const,
-    adminNotes: "Approved for deployment expenses"
+    adminNotes: "Approved for deployment expenses",
   },
   {
     id: "WR004",
@@ -503,8 +517,8 @@ export const sampleWithdrawalRequests = [
     amount: 200000,
     destinationType: "bank" as const,
     destinationDetails: {
-      bankName: "First Bank of Nigeria", 
-      accountNumber: "3024567890"
+      bankName: "First Bank of Nigeria",
+      accountNumber: "3024567890",
     },
     status: "denied" as const,
     submittedAt: "2025-09-30T11:10:00Z",
@@ -516,8 +530,8 @@ export const sampleWithdrawalRequests = [
     priority: "high" as const,
     riskLevel: "high" as const,
     denialReason: "daily_limit_exceeded",
-    adminNotes: "Amount exceeds daily withdrawal limit of ₦150,000"
-  }
+    adminNotes: "Amount exceeds daily withdrawal limit of ₦150,000",
+  },
 ];
 
 export const sampleEarlyReleaseRequests = [
@@ -528,21 +542,23 @@ export const sampleEarlyReleaseRequests = [
     lockedAmount: 100000,
     lockReason: "Mandatory savings lock for new personnel",
     lockUntil: "2025-12-01",
-    releaseReason: "Medical emergency for dependent - hospital bills required urgently",
+    releaseReason:
+      "Medical emergency for dependent - hospital bills required urgently",
     supportingDocument: "medical_certificate_001.pdf",
     status: "pending" as const,
-    submittedAt: "2025-10-02T09:00:00Z"
+    submittedAt: "2025-10-02T09:00:00Z",
   },
   {
     id: "ER002",
     userId: "U002",
-    user: sampleUsers[1], 
+    user: sampleUsers[1],
     lockedAmount: 50000,
     lockReason: "Performance improvement plan lock",
     lockUntil: "2025-11-15",
-    releaseReason: "Family emergency - father hospitalized, need funds for medical care",
+    releaseReason:
+      "Family emergency - father hospitalized, need funds for medical care",
     status: "pending" as const,
-    submittedAt: "2025-10-01T16:30:00Z"
+    submittedAt: "2025-10-01T16:30:00Z",
   },
   {
     id: "ER003",
@@ -551,13 +567,15 @@ export const sampleEarlyReleaseRequests = [
     lockedAmount: 75000,
     lockReason: "Administrative hold pending investigation",
     lockUntil: "2025-10-15",
-    releaseReason: "House rent due - risk of eviction without immediate payment",
+    releaseReason:
+      "House rent due - risk of eviction without immediate payment",
     status: "approved" as const,
     submittedAt: "2025-09-28T13:15:00Z",
     processedAt: "2025-09-29T10:20:00Z",
     processedBy: "Col. Ibrahim Hassan",
-    adminNotes: "Approved due to extenuating circumstances. Investigation cleared."
-  }
+    adminNotes:
+      "Approved due to extenuating circumstances. Investigation cleared.",
+  },
 ];
 
 export const sampleLockedFunds = {
@@ -565,7 +583,7 @@ export const sampleLockedFunds = {
   lockUntil: "2025-12-01",
   reason: "Mandatory savings lock for new personnel",
   policyReference: "MSF-2025-001",
-  canRequestEarlyRelease: true
+  canRequestEarlyRelease: true,
 };
 
 export const sampleRankAllocations: RankAllocation[] = [
@@ -579,38 +597,38 @@ export const sampleRankAllocations: RankAllocation[] = [
     createdBy: "Col. Ibrahim Hassan",
     createdAt: "2024-12-01T10:00:00Z",
     updatedBy: "Lt. Col. Sarah Adebayo",
-    updatedAt: "2025-01-15T14:30:00Z"
+    updatedAt: "2025-01-15T14:30:00Z",
   },
   {
-    id: "RA002", 
+    id: "RA002",
     rank: "Corporal",
     defaultAllocation: 12000,
     effectiveFrom: "2025-01-01",
     lockPeriod: 6,
     isActive: true,
     createdBy: "Col. Ibrahim Hassan",
-    createdAt: "2024-12-01T10:00:00Z"
+    createdAt: "2024-12-01T10:00:00Z",
   },
   {
     id: "RA003",
-    rank: "Sergeant", 
+    rank: "Sergeant",
     defaultAllocation: 18000,
     effectiveFrom: "2025-01-01",
     lockPeriod: 6,
     isActive: true,
     createdBy: "Col. Ibrahim Hassan",
-    createdAt: "2024-12-01T10:00:00Z"
+    createdAt: "2024-12-01T10:00:00Z",
   },
   {
     id: "RA004",
     rank: "Lieutenant",
     defaultAllocation: 25000,
-    effectiveFrom: "2025-01-01", 
+    effectiveFrom: "2025-01-01",
     lockPeriod: 6,
     isActive: true,
     createdBy: "Col. Ibrahim Hassan",
-    createdAt: "2024-12-01T10:00:00Z"
-  }
+    createdAt: "2024-12-01T10:00:00Z",
+  },
 ];
 
 export const sampleAllocationPayouts: AllocationPayout[] = [
@@ -622,27 +640,27 @@ export const sampleAllocationPayouts: AllocationPayout[] = [
     payoutDate: "2025-11-01",
     status: "scheduled",
     reference: "PAY-2025-11-18001",
-    description: "November 2025 monthly allocation"
+    description: "November 2025 monthly allocation",
   },
   {
     id: "AP002",
     userId: sampleUsers[0].service_no,
-    rank: "Sergeant", 
+    rank: "Sergeant",
     amount: 18000,
     payoutDate: "2025-10-01",
     status: "completed",
     reference: "PAY-2025-10-18001",
-    description: "October 2025 monthly allocation"
+    description: "October 2025 monthly allocation",
   },
   {
     id: "AP003",
     userId: sampleUsers[0].service_no,
     rank: "Sergeant",
     amount: 18000,
-    payoutDate: "2025-09-01", 
+    payoutDate: "2025-09-01",
     status: "completed",
     reference: "PAY-2025-09-18001",
-    description: "September 2025 monthly allocation"
+    description: "September 2025 monthly allocation",
   },
   {
     id: "AP004",
@@ -650,10 +668,10 @@ export const sampleAllocationPayouts: AllocationPayout[] = [
     rank: "Sergeant",
     amount: 18000,
     payoutDate: "2025-08-01",
-    status: "completed", 
+    status: "completed",
     reference: "PAY-2025-08-18001",
-    description: "August 2025 monthly allocation"
-  }
+    description: "August 2025 monthly allocation",
+  },
 ];
 
 export const sampleAuditLog: AuditLogEntry[] = [
@@ -667,26 +685,28 @@ export const sampleAuditLog: AuditLogEntry[] = [
     entityId: "RA001",
     beforeState: { defaultAllocation: 7500, lockPeriod: 3 },
     afterState: { defaultAllocation: 8000, lockPeriod: 6 },
-    description: "Updated Private rank allocation from ₦7,500 to ₦8,000 and extended lock period to 6 months",
+    description:
+      "Updated Private rank allocation from ₦7,500 to ₦8,000 and extended lock period to 6 months",
     ipAddress: "192.168.1.105",
-    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
   },
   {
     id: "AL002",
     action: "policy_published",
     actor: "Col. Ibrahim Hassan",
-    actorRole: "super_admin", 
+    actorRole: "super_admin",
     timestamp: "2025-01-01T08:00:00Z",
     entityType: "policy",
     entityId: "POL-2025-001",
-    description: "Published new rank allocation policy effective January 1, 2025",
+    description:
+      "Published new rank allocation policy effective January 1, 2025",
     ipAddress: "192.168.1.100",
-    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
   },
   {
     id: "AL003",
     action: "rank_allocation_created",
-    actor: "Col. Ibrahim Hassan", 
+    actor: "Col. Ibrahim Hassan",
     actorRole: "super_admin",
     timestamp: "2024-12-01T10:00:00Z",
     entityType: "rank_allocation",
@@ -694,8 +714,8 @@ export const sampleAuditLog: AuditLogEntry[] = [
     afterState: { defaultAllocation: 7500, lockPeriod: 3 },
     description: "Created rank allocation policy for Private rank",
     ipAddress: "192.168.1.100",
-    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-  }
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+  },
 ];
 
 export const sampleRosterData: RosterData[] = [
@@ -703,26 +723,26 @@ export const sampleRosterData: RosterData[] = [
     rank: "Private",
     count: 12500,
     activeCount: 11250,
-    totalAllocation: 90000000 // 11,250 * 8,000
+    totalAllocation: 90000000, // 11,250 * 8,000
   },
   {
-    rank: "Corporal", 
+    rank: "Corporal",
     count: 8200,
     activeCount: 7380,
-    totalAllocation: 88560000 // 7,380 * 12,000
+    totalAllocation: 88560000, // 7,380 * 12,000
   },
   {
     rank: "Sergeant",
     count: 3500,
     activeCount: 3150,
-    totalAllocation: 56700000 // 3,150 * 18,000
+    totalAllocation: 56700000, // 3,150 * 18,000
   },
   {
     rank: "Lieutenant",
     count: 850,
     activeCount: 765,
-    totalAllocation: 19125000 // 765 * 25,000
-  }
+    totalAllocation: 19125000, // 765 * 25,000
+  },
 ];
 
 // Agent App Sample Data
@@ -737,7 +757,7 @@ export const sampleAgents = [
     location: {
       latitude: 9.0579,
       longitude: 8.6796,
-      address: "Shop 15, Kwari Market, Kano State"
+      address: "Shop 15, Kwari Market, Kano State",
     },
     floatBalance: 125000,
     avatar: null,
@@ -745,10 +765,10 @@ export const sampleAgents = [
     tier: "Premium",
     kycStatus: "verified",
     joinedAt: "2024-08-15T09:00:00Z",
-    lastActive: "2025-10-04T10:30:00Z"
+    lastActive: "2025-10-04T10:30:00Z",
   },
   {
-    id: "AG002", 
+    id: "AG002",
     name: "Grace Okafor",
     businessName: "Grace Pay Centre",
     phone: "+234-806-987-6543",
@@ -757,7 +777,7 @@ export const sampleAgents = [
     location: {
       latitude: 5.1958,
       longitude: 7.2012,
-      address: "Block 5, Ogbete Main Market, Enugu State"
+      address: "Block 5, Ogbete Main Market, Enugu State",
     },
     floatBalance: 89500,
     avatar: null,
@@ -765,8 +785,8 @@ export const sampleAgents = [
     tier: "Standard",
     kycStatus: "verified",
     joinedAt: "2024-09-02T11:15:00Z",
-    lastActive: "2025-10-04T08:45:00Z"
-  }
+    lastActive: "2025-10-04T08:45:00Z",
+  },
 ];
 
 export const sampleAgentTransactions = [
@@ -784,7 +804,8 @@ export const sampleAgentTransactions = [
     status: "completed" as const,
     timestamp: "2025-10-04T10:15:00Z",
     receiptGenerated: true,
-    qrCode: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+    qrCode:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
   },
   {
     id: "AT002",
@@ -800,7 +821,7 @@ export const sampleAgentTransactions = [
     withdrawalCode: "WTH123456",
     status: "completed" as const,
     timestamp: "2025-10-04T09:30:00Z",
-    otpVerified: true
+    otpVerified: true,
   },
   {
     id: "AT003",
@@ -815,11 +836,11 @@ export const sampleAgentTransactions = [
     reference: "CI-2025-10-04-003",
     status: "completed" as const,
     timestamp: "2025-10-04T08:45:00Z",
-    receiptGenerated: true
+    receiptGenerated: true,
   },
   {
     id: "AT004",
-    agentId: "AG001", 
+    agentId: "AG001",
     type: "cash_out" as const,
     soldierServiceNumber: "2023/0004",
     soldierName: "Ibrahim Yakubu",
@@ -831,7 +852,7 @@ export const sampleAgentTransactions = [
     withdrawalCode: "WTH789012",
     status: "pending_otp" as const,
     timestamp: "2025-10-04T10:45:00Z",
-    requiresOTP: true
+    requiresOTP: true,
   },
   {
     id: "AT005",
@@ -846,8 +867,8 @@ export const sampleAgentTransactions = [
     reference: "CI-2025-10-03-005",
     status: "failed" as const,
     timestamp: "2025-10-03T16:20:00Z",
-    errorReason: "Network timeout - please retry"
-  }
+    errorReason: "Network timeout - please retry",
+  },
 ];
 
 export const sampleOfflineQueue = [
@@ -864,13 +885,13 @@ export const sampleOfflineQueue = [
     timestamp: "2025-10-04T11:30:00Z",
     retryCount: 2,
     lastRetry: "2025-10-04T11:35:00Z",
-    status: "queued" as const
+    status: "queued" as const,
   },
   {
     id: "OQ002",
     agentId: "AG001",
     type: "cash_out" as const,
-    soldierServiceNumber: "2023/0007", 
+    soldierServiceNumber: "2023/0007",
     soldierName: "Blessing Okon",
     soldierRank: "Private",
     amount: 12000,
@@ -880,8 +901,8 @@ export const sampleOfflineQueue = [
     timestamp: "2025-10-04T11:45:00Z",
     retryCount: 1,
     lastRetry: "2025-10-04T11:50:00Z",
-    status: "queued" as const
-  }
+    status: "queued" as const,
+  },
 ];
 
 export const sampleDailyReconciliation = {
@@ -895,14 +916,14 @@ export const sampleDailyReconciliation = {
     totalCashOutFees: 250,
     cashOutCount: 2,
     netCashFlow: -23500,
-    totalFees: 335
+    totalFees: 335,
   },
-  transactions: sampleAgentTransactions.filter(t => t.status === "completed"),
+  transactions: sampleAgentTransactions.filter((t) => t.status === "completed"),
   settlementBatch: {
     id: "SB-2025-10-04-AG001",
     createdAt: "2025-10-04T18:00:00Z",
-    status: "pending" as const
-  }
+    status: "pending" as const,
+  },
 };
 
 // Admin Portal Sample Data
@@ -916,7 +937,7 @@ export const sampleAdminUsers = [
     rank: "Colonel",
     avatar: null,
     lastLogin: "2025-10-15T09:30:00Z",
-    isActive: true
+    isActive: true,
   },
   {
     id: "ADM002",
@@ -927,7 +948,7 @@ export const sampleAdminUsers = [
     rank: "Major",
     avatar: null,
     lastLogin: "2025-10-15T08:15:00Z",
-    isActive: true
+    isActive: true,
   },
   {
     id: "ADM003",
@@ -938,7 +959,7 @@ export const sampleAdminUsers = [
     rank: "Captain",
     avatar: null,
     lastLogin: "2025-10-15T07:45:00Z",
-    isActive: true
+    isActive: true,
   },
   {
     id: "ADM004",
@@ -949,8 +970,8 @@ export const sampleAdminUsers = [
     rank: "Lieutenant",
     avatar: null,
     lastLogin: "2025-10-15T10:00:00Z",
-    isActive: true
-  }
+    isActive: true,
+  },
 ];
 
 export const samplePayrollUploadHistory = [
@@ -965,7 +986,7 @@ export const samplePayrollUploadHistory = [
     failedRecords: 0,
     totalAmount: 254385000,
     status: "completed" as const,
-    processingTime: 180
+    processingTime: 180,
   },
   {
     id: "PU002",
@@ -978,8 +999,8 @@ export const samplePayrollUploadHistory = [
     failedRecords: 22,
     totalAmount: 253950000,
     status: "completed_with_errors" as const,
-    processingTime: 185
-  }
+    processingTime: 185,
+  },
 ];
 
 export const samplePayrollValidationErrors = [
@@ -987,20 +1008,21 @@ export const samplePayrollValidationErrors = [
     row: 156,
     serviceNumber: "NA-15678",
     error: "Invalid service number format",
-    suggestion: "Service number should match pattern NA-XXXXX"
+    suggestion: "Service number should match pattern NA-XXXXX",
   },
   {
     row: 302,
     serviceNumber: "NA-30245",
     error: "Rank code 'X7' not found in system",
-    suggestion: "Valid rank codes: R1 (Private), R2 (Corporal), R3 (Sergeant), R4 (Lieutenant)"
+    suggestion:
+      "Valid rank codes: R1 (Private), R2 (Corporal), R3 (Sergeant), R4 (Lieutenant)",
   },
   {
     row: 1024,
     serviceNumber: "NA-10240",
     error: "Amount exceeds maximum allocation for rank",
-    suggestion: "Maximum for Corporal rank is ₦12,000"
-  }
+    suggestion: "Maximum for Corporal rank is ₦12,000",
+  },
 ];
 
 export const sampleKPIData = {
@@ -1021,8 +1043,8 @@ export const sampleKPIData = {
     { month: "Jul", value: 1200000000 },
     { month: "Aug", value: 1220000000 },
     { month: "Sep", value: 1240000000 },
-    { month: "Oct", value: 1250000000 }
-  ]
+    { month: "Oct", value: 1250000000 },
+  ],
 };
 
 export const sampleExtendedUsers = [
@@ -1040,7 +1062,7 @@ export const sampleExtendedUsers = [
     createdAt: "2024-03-15T09:00:00Z",
     suspendedAt: null,
     suspendedBy: null,
-    suspensionReason: null
+    suspensionReason: null,
   },
   {
     ...sampleUsers[1],
@@ -1056,7 +1078,7 @@ export const sampleExtendedUsers = [
     createdAt: "2024-05-20T11:30:00Z",
     suspendedAt: null,
     suspendedBy: null,
-    suspensionReason: null
+    suspensionReason: null,
   },
   {
     ...sampleUsers[2],
@@ -1072,7 +1094,7 @@ export const sampleExtendedUsers = [
     createdAt: "2023-11-10T08:15:00Z",
     suspendedAt: null,
     suspendedBy: null,
-    suspensionReason: null
+    suspensionReason: null,
   },
   {
     name: "Musa Abdullahi",
@@ -1093,7 +1115,7 @@ export const sampleExtendedUsers = [
     createdAt: "2025-06-01T10:00:00Z",
     suspendedAt: null,
     suspendedBy: null,
-    suspensionReason: null
+    suspensionReason: null,
   },
   {
     name: "Blessing Nwosu",
@@ -1114,8 +1136,8 @@ export const sampleExtendedUsers = [
     createdAt: "2024-08-12T13:45:00Z",
     suspendedAt: "2025-10-01T10:00:00Z",
     suspendedBy: "ADM001",
-    suspensionReason: "Pending security clearance review"
-  }
+    suspensionReason: "Pending security clearance review",
+  },
 ];
 
 export const sampleAdminAuditLogs = [
@@ -1134,9 +1156,9 @@ export const sampleAdminAuditLogs = [
     changes: {
       fileName: "payroll_october_2025.csv",
       totalRecords: 25050,
-      totalAmount: 254385000
+      totalAmount: 254385000,
     },
-    severity: "info" as const
+    severity: "info" as const,
   },
   {
     id: "AL002",
@@ -1152,9 +1174,12 @@ export const sampleAdminAuditLogs = [
     userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
     changes: {
       before: { accountStatus: "active" },
-      after: { accountStatus: "suspended", reason: "Pending security clearance review" }
+      after: {
+        accountStatus: "suspended",
+        reason: "Pending security clearance review",
+      },
     },
-    severity: "warning" as const
+    severity: "warning" as const,
   },
   {
     id: "AL003",
@@ -1170,9 +1195,9 @@ export const sampleAdminAuditLogs = [
     userAgent: "Mozilla/5.0 (X11; Linux x86_64)",
     changes: {
       resetMethod: "SMS OTP",
-      requestId: "PR-2025-10-15-001"
+      requestId: "PR-2025-10-15-001",
     },
-    severity: "info" as const
+    severity: "info" as const,
   },
   {
     id: "AL004",
@@ -1189,9 +1214,9 @@ export const sampleAdminAuditLogs = [
     changes: {
       before: { defaultAllocation: 16000 },
       after: { defaultAllocation: 18000 },
-      effectiveFrom: "2025-11-01"
+      effectiveFrom: "2025-11-01",
     },
-    severity: "critical" as const
+    severity: "critical" as const,
   },
   {
     id: "AL005",
@@ -1208,9 +1233,9 @@ export const sampleAdminAuditLogs = [
     changes: {
       reportType: "quarterly",
       period: "2025-Q3",
-      format: "PDF"
+      format: "PDF",
     },
-    severity: "info" as const
+    severity: "info" as const,
   },
   {
     id: "AL006",
@@ -1227,9 +1252,9 @@ export const sampleAdminAuditLogs = [
     changes: {
       before: { status: "pending" },
       after: { status: "approved" },
-      approvalNotes: "Verified supporting documents"
+      approvalNotes: "Verified supporting documents",
     },
-    severity: "info" as const
+    severity: "info" as const,
   },
   {
     id: "AL007",
@@ -1245,10 +1270,10 @@ export const sampleAdminAuditLogs = [
     userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
     changes: {
       attemptCount: 3,
-      accountLocked: false
+      accountLocked: false,
     },
-    severity: "warning" as const
-  }
+    severity: "warning" as const,
+  },
 ];
 
 export const sampleReportFilters = {
@@ -1259,9 +1284,17 @@ export const sampleReportFilters = {
     { label: "This Month", value: "thisMonth" },
     { label: "Last Month", value: "lastMonth" },
     { label: "This Quarter", value: "thisQuarter" },
-    { label: "Custom Range", value: "custom" }
+    { label: "Custom Range", value: "custom" },
   ],
-  ranks: ["Private", "Corporal", "Sergeant", "Lieutenant", "Captain", "Major", "Colonel"],
+  ranks: [
+    "Private",
+    "Corporal",
+    "Sergeant",
+    "Lieutenant",
+    "Captain",
+    "Major",
+    "Colonel",
+  ],
   regiments: [
     "1st Division Infantry",
     "2nd Brigade Artillery",
@@ -1269,21 +1302,17 @@ export const sampleReportFilters = {
     "4th Brigade Engineering",
     "7th Division Infantry",
     "81st Division",
-    "82nd Division"
+    "82nd Division",
   ],
-  branches: [
-    "Nigerian Army",
-    "Nigerian Navy",
-    "Nigerian Air Force"
-  ],
+  branches: ["Nigerian Army", "Nigerian Navy", "Nigerian Air Force"],
   reportTypes: [
     { label: "Transaction Summary", value: "transactions" },
     { label: "User Activity", value: "user_activity" },
     { label: "Financial Overview", value: "financial" },
     { label: "Allocation Report", value: "allocations" },
     { label: "Withdrawal Report", value: "withdrawals" },
-    { label: "Audit Log", value: "audit" }
-  ]
+    { label: "Audit Log", value: "audit" },
+  ],
 };
 
 // Notification and Announcement Data
@@ -1292,15 +1321,16 @@ export const sampleNotifications: Notification[] = [
     id: "N001",
     type: "system",
     title: "Payroll Allocation Received",
-    message: "Your monthly allocation of ₦10,000 has been credited to your account.",
+    message:
+      "Your monthly allocation of ₦10,000 has been credited to your account.",
     timestamp: "2025-10-15T08:00:00Z",
     read: false,
     priority: "medium",
     category: "transaction",
     metadata: {
       transactionId: "TXN-2025-10-15-001",
-      amount: 10000
-    }
+      amount: 10000,
+    },
   },
   {
     id: "N002",
@@ -1313,22 +1343,23 @@ export const sampleNotifications: Notification[] = [
     category: "goal",
     actionLabel: "View Goal",
     metadata: {
-      goalId: "1"
-    }
+      goalId: "1",
+    },
   },
   {
     id: "N003",
     type: "system",
     title: "Withdrawal Approved",
-    message: "Your withdrawal request of ₦15,000 has been approved and processed.",
+    message:
+      "Your withdrawal request of ₦15,000 has been approved and processed.",
     timestamp: "2025-10-13T11:20:00Z",
     read: true,
     priority: "high",
     category: "transaction",
     metadata: {
       transactionId: "TXN-2025-10-13-042",
-      amount: 15000
-    }
+      amount: 15000,
+    },
   },
   {
     id: "N004",
@@ -1339,33 +1370,35 @@ export const sampleNotifications: Notification[] = [
     read: true,
     priority: "urgent",
     category: "security",
-    actionLabel: "Review Activity"
+    actionLabel: "Review Activity",
   },
   {
     id: "N005",
     type: "system",
     title: "Goal Contribution Scheduled",
-    message: "Your next automatic contribution of ₦8,333 will be deducted on Nov 1, 2025.",
+    message:
+      "Your next automatic contribution of ₦8,333 will be deducted on Nov 1, 2025.",
     timestamp: "2025-10-11T07:00:00Z",
     read: true,
     priority: "low",
     category: "goal",
     metadata: {
       goalId: "1",
-      amount: 8333
-    }
+      amount: 8333,
+    },
   },
   {
     id: "N006",
     type: "announcement",
     title: "New Policy Update - Enhanced Withdrawal Limits",
-    message: "The Nigerian Army Finance Corps has approved increased withdrawal limits for all ranks effective Nov 1, 2025.",
+    message:
+      "The Nigerian Army Finance Corps has approved increased withdrawal limits for all ranks effective Nov 1, 2025.",
     timestamp: "2025-10-10T06:00:00Z",
     read: false,
     priority: "high",
     category: "policy",
-    actionLabel: "Read More"
-  }
+    actionLabel: "Read More",
+  },
 ];
 
 export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
@@ -1380,7 +1413,7 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
     status: "published",
     priority: "high",
     targetAudience: {
-      type: "all"
+      type: "all",
     },
     attachments: [
       {
@@ -1388,21 +1421,21 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
         name: "Withdrawal_Limits_Policy_Nov2025.pdf",
         type: "pdf",
         url: "#",
-        size: 245000
+        size: 245000,
       },
       {
         id: "ATT002",
         name: "FAQ - Withdrawal Updates",
         type: "link",
-        url: "https://moloyal.ng/faq/withdrawals"
-      }
+        url: "https://moloyal.ng/faq/withdrawals",
+      },
     ],
     analytics: {
       delivered: 45678,
       opened: 32451,
       clicked: 12340,
-      targetCount: 45678
-    }
+      targetCount: 45678,
+    },
   },
   {
     id: "ANN002",
@@ -1415,14 +1448,14 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
     status: "published",
     priority: "medium",
     targetAudience: {
-      type: "all"
+      type: "all",
     },
     analytics: {
       delivered: 45678,
       opened: 38920,
       clicked: 5430,
-      targetCount: 45678
-    }
+      targetCount: 45678,
+    },
   },
   {
     id: "ANN003",
@@ -1436,7 +1469,7 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
     priority: "urgent",
     targetAudience: {
       type: "rank",
-      ranks: ["Sergeant", "Lieutenant"]
+      ranks: ["Sergeant", "Lieutenant"],
     },
     attachments: [
       {
@@ -1444,15 +1477,15 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
         name: "KYC_Requirements_Checklist.pdf",
         type: "pdf",
         url: "#",
-        size: 189000
-      }
+        size: 189000,
+      },
     ],
     analytics: {
       delivered: 12340,
       opened: 9870,
       clicked: 6540,
-      targetCount: 12340
-    }
+      targetCount: 12340,
+    },
   },
   {
     id: "ANN004",
@@ -1465,22 +1498,22 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
     status: "published",
     priority: "low",
     targetAudience: {
-      type: "all"
+      type: "all",
     },
     attachments: [
       {
         id: "ATT004",
         name: "Release Notes v2.5",
         type: "link",
-        url: "https://moloyal.ng/updates/v2.5"
-      }
+        url: "https://moloyal.ng/updates/v2.5",
+      },
     ],
     analytics: {
       delivered: 45678,
       opened: 28900,
       clicked: 15600,
-      targetCount: 45678
-    }
+      targetCount: 45678,
+    },
   },
   {
     id: "ANN005",
@@ -1492,9 +1525,9 @@ export const sampleArmyAnnouncements: ArmyAnnouncement[] = [
     priority: "medium",
     targetAudience: {
       type: "rank",
-      ranks: ["Sergeant", "Lieutenant"]
-    }
-  }
+      ranks: ["Sergeant", "Lieutenant"],
+    },
+  },
 ];
 
 export const sampleNotificationSettings: NotificationSettings = {
@@ -1505,15 +1538,15 @@ export const sampleNotificationSettings: NotificationSettings = {
       transactions: true,
       goals: true,
       security: true,
-      announcements: true
-    }
+      announcements: true,
+    },
   },
   sms: {
     enabled: true,
     categories: {
       transactions: true,
-      security: true
-    }
+      security: true,
+    },
   },
   email: {
     enabled: true,
@@ -1522,7 +1555,7 @@ export const sampleNotificationSettings: NotificationSettings = {
       goals: false,
       security: true,
       announcements: true,
-      weekly_summary: true
-    }
-  }
+      weekly_summary: true,
+    },
+  },
 };
